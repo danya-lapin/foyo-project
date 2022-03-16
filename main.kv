@@ -1,0 +1,145 @@
+MDScreen:
+    MDBoxLayout:
+        orientation:'vertical'
+        MDToolbar:
+            title:"ebal vash proekt"
+            md_bg_color : .2,.2,.2,1
+            right_action_items:[["moon-waxing-crescent",lambda x:None]]
+        MDBottomNavigation:
+            panel_color:.2,.2,.2,1
+            MDBottomNavigationItem:
+                name:"host screen"
+                text:"HOST"
+                icon:'home'
+                MDScreen:
+                    ScrollView:
+                        bar_width:0
+                        MDBoxLayout:
+                            orientation:'vertical'
+                            padding:'30dp'
+                            adaptive_height:True
+                            spacing:'10dp'
+                            MDLabel:
+                                text:'Requests'
+                                font_style:'H6'
+                                halign:'center'
+                            OneLineAvatarIconListItem:
+                                text: str(app.RequestDevice1)
+                                IconLeftWidget:
+                                    icon: "cellphone"
+                                    pos_hint:{'center_x':0,'center_y':.5}
+                                IconRightWidget:
+                                    icon: "plus"
+                                    pos_hint:{'center_x':1,'center_y':.5}
+                                IconRightWidget:
+                                    icon: 'minus'
+                                    pos_hint:{'center_x':0,'center_y':.5}
+                            OneLineAvatarIconListItem:
+                                text: str(app.RequestDevice2)
+
+                                IconRightWidget:
+                                    icon: "plus"
+                                    pos_hint:{'center_x':1,'center_y':.5}
+                                IconLeftWidget:
+                                    icon: "cellphone"
+                                    pos_hint:{'center_x':0,'center_y':.5}
+                                IconRightWidget:
+                                    icon: 'minus'
+                                    pos_hint:{'center_x':0,'center_y':.5}
+                            OneLineAvatarIconListItem:
+                                text: str(app.RequestDevice3)
+                                IconLeftWidget:
+                                    icon: "cellphone"
+                                    pos_hint:{'center_x':0,'center_y':.5}
+
+                                IconRightWidget:
+                                    icon: "plus"
+                                    pos_hint:{'center_x':1,'center_y':.5}
+                                IconRightWidget:
+                                    icon: 'minus'
+                                    pos_hint:{'center_x':0,'center_y':.5}
+                            MDLabel:
+                                text:''
+                            MDLabel:
+                                text:'Connected'
+                                font_style:'H6'
+                                halign:'center'
+                            OneLineAvatarIconListItem:
+                                text: str(app.ConnectedDevice1)
+                                IconLeftWidget:
+                                    icon: "cellphone"
+                                    pos_hint:{'center_x':0,'center_y':.5}
+
+                                IconRightWidget:
+                                    icon: "minus"
+                                    pos_hint:{'center_x':1,'center_y':.5}
+                            OneLineAvatarIconListItem:
+                                text: str(app.ConnectedDevice2)
+                                IconLeftWidget:
+                                    icon: "cellphone"
+                                    pos_hint:{'center_x':0,'center_y':.5}
+
+                                IconRightWidget:
+                                    icon: "minus"
+                                    pos_hint:{'center_x':1,'center_y':.5}
+
+
+
+            MDBottomNavigationItem:
+                name:"join screen"
+                text:"JOIN"
+                icon:'account-plus'
+                MDScreen:
+                    MDScreen:
+                    ScrollView:
+                        bar_width:0
+                        MDBoxLayout:
+                            orientation:'vertical'
+                            padding:'30dp'
+                            adaptive_height:True
+                            spacing:'10dp'
+                            MDLabel:
+                                text:'Wi-Fi connect'
+                                font_style:'H6'
+                                halign:'center'
+                            OneLineAvatarIconListItem:
+                                text: str(app.WIFIDevice1)
+                                IconLeftWidget:
+                                    icon: "cellphone"
+                                    pos_hint:{'center_x':0,'center_y':.5}
+
+                                IconRightWidget:
+                                    icon: "plus"
+                                    pos_hint:{'center_x':1,'center_y':.5}
+                            OneLineAvatarIconListItem:
+                                text: str(app.WIFIDevice2)
+                                IconLeftWidget:
+                                    icon: "cellphone"
+                                    pos_hint:{'center_x':0,'center_y':.5}
+
+                                IconRightWidget:
+                                    icon: "plus"
+                                    pos_hint:{'center_x':1,'center_y':.5}
+                            MDLabel:
+                                text:''
+                            MDLabel:
+                                text:'Connect by IP'
+                                font_style:'H6'
+                                halign:'center'
+                            MDBoxLayout:
+                                orientation:'vertical'
+
+                                adaptive_height:True
+
+                                MDLabel:
+                                    text:'Write IP'
+                                    halign:'center'
+                                TextInput:
+                                    id: NIP
+                                    multiline:False
+                                    write_tab:False
+                                Button:
+                                    text:'accept'
+                                    on_press:
+                                        app.deviceIP = NIP.text
+                                        app.connect_receiver()
